@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConnectGerman — Verbinden. Informieren. Inspirieren.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#00897B;--dark-teal:#00695C;--charcoal:#1C2526;--light:#F5F7F8;--white:#fff;--mid:#607D8B;--border:#CFD8DC;--yellow:#FFD600}
+body{font-family:'Raleway',sans-serif;background:var(--light);color:var(--charcoal)}
+header{background:var(--charcoal);position:sticky;top:0;z-index:100}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:1px}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;letter-spacing:2px}
+.logo-text span{color:var(--yellow)}
+nav{display:flex;gap:4px}
+nav a{text-decoration:none;color:rgba(255,255,255,0.6);font-size:12px;font-weight:600;padding:8px 14px;letter-spacing:1px;text-transform:uppercase;transition:all 0.2s}
+nav a:hover{color:#fff;background:rgba(255,255,255,0.08)}
+.nav-cta{background:var(--teal)!important;color:#fff!important}
+.hero{background:var(--charcoal);display:grid;grid-template-columns:1fr 1fr;min-height:460px}
+.hero-left{padding:70px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-left::before{content:'CG';position:absolute;font-family:'Bebas Neue',sans-serif;font-size:280px;color:rgba(255,255,255,0.03);right:-40px;bottom:-40px;line-height:1}
+.hero-tag{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.hero-tag-line{width:32px;height:2px;background:var(--teal)}
+.hero-tag-text{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:700}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:72px;color:#fff;line-height:0.95;letter-spacing:2px;margin-bottom:24px}
+.hero h1 em{color:var(--yellow);font-style:normal;display:block}
+.hero p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;max-width:400px;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px}
+.btn-primary{display:inline-block;background:var(--teal);color:#fff;padding:13px 28px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.btn-primary:hover{background:var(--yellow);color:var(--charcoal)}
+.hero-right{background:linear-gradient(135deg,var(--teal),var(--dark-teal));display:flex;flex-direction:column;justify-content:flex-end;padding:40px;gap:16px}
+.hero-stat-item{background:rgba(0,0,0,0.2);padding:18px 22px;border-left:3px solid var(--yellow)}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:#fff;line-height:1}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.5px}
+.section{max-width:1200px;margin:56px auto;padding:0 28px}
+.section-head{display:flex;align-items:center;gap:14px;margin-bottom:32px}
+.section-head-bar{width:4px;height:32px;background:linear-gradient(to bottom,var(--teal),var(--yellow))}
+.section-head h2{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;color:var(--charcoal)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.card{background:var(--white);overflow:hidden;transition:all 0.3s;cursor:pointer;border:1px solid var(--border)}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.1);border-color:var(--teal)}
+.card-img{height:195px;position:relative;overflow:hidden}
+.card-img-bg{width:100%;height:100%;transition:transform 0.5s}
+.card:hover .card-img-bg{transform:scale(1.08)}
+.card-num{position:absolute;top:14px;right:14px;background:var(--yellow);color:var(--charcoal);font-family:'Bebas Neue',sans-serif;font-size:20px;width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.card-cat{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:20px 16px 10px;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.card-body{padding:22px}
+.card-date{font-size:11px;color:#aaa;font-weight:600;letter-spacing:0.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card-date::before{content:'';width:16px;height:1px;background:var(--teal)}
+.card-title{font-size:18px;font-weight:700;color:var(--charcoal);line-height:1.35;margin-bottom:10px}
+.card-excerpt{font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:16px}
+.card-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--teal);text-decoration:none;letter-spacing:1px;text-transform:uppercase}
+.c1{background:linear-gradient(135deg,#00695C,#00897B)}
+.c2{background:linear-gradient(135deg,#1C2526,#37474F)}
+.c3{background:linear-gradient(135deg,#FF6F00,#FFB300)}
+.c4{background:linear-gradient(135deg,#1565C0,#1E88E5)}
+.c5{background:linear-gradient(135deg,#6A1B9A,#AB47BC)}
+.c6{background:linear-gradient(135deg,#2E7D32,#43A047)}
+.empty{text-align:center;padding:80px;color:var(--mid);grid-column:1/-1}
+.empty h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;color:var(--charcoal);margin-bottom:8px}
+footer{background:var(--charcoal);color:rgba(255,255,255,0.4);margin-top:60px}
+.footer-inner{max-width:1200px;margin:0 auto;padding:48px 28px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+.fl{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px;margin-bottom:12px}
+.fl span{color:var(--yellow)}
+.footer-inner p{font-size:13px;line-height:1.7;font-weight:300}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,0.4);text-decoration:none;font-size:13px;margin-bottom:8px}
+.footer-col a:hover{color:var(--yellow)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);text-align:center;padding:20px;font-size:12px}
+.footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;margin:0 8px}
+.admin-link{position:fixed;bottom:20px;right:20px;background:var(--teal);color:#fff;padding:10px 18px;font-size:12px;text-decoration:none;opacity:0.4;transition:opacity 0.2s;font-weight:700}
+.admin-link:hover{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">CG</div>
+      <div class="logo-text">Connect<span>German</span></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html">Themen</a>
+      <a href="index.html">Deutschland</a>
+      <a href="index.html">Wirtschaft</a>
+      <a href="index.html" class="nav-cta">Entdecken</a>
+    </nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><div class="hero-tag-line"></div><div class="hero-tag-text">Willkommen bei ConnectGerman</div></div>
+    <h1>Verbinden.<br><em>Informieren.</em><br>Inspirieren.</h1>
+    <p>Die Plattform, die Menschen mit den wichtigsten Themen aus Deutschland verbindet.</p>
+    <div class="hero-btns"><a href="#articles" class="btn-primary">Artikel entdecken</a></div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-item"><div class="hero-stat-num">DE</div><div class="hero-stat-label">Deutsche Inhalte</div></div>
+    <div class="hero-stat-item"><div class="hero-stat-num">24/7</div><div class="hero-stat-label">Täglich neue Artikel</div></div>
+    <div class="hero-stat-item"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Kostenlos lesen</div></div>
+  </div>
+</div>
+<div class="section" id="articles">
+  <div class="section-head"><div class="section-head-bar"></div><h2>Aktuelle Artikel</h2></div>
+  <div class="grid" id="posts-grid"><div class="empty"><h3>Noch keine Artikel</h3><p>Inhalte erscheinen in Kürze.</p></div></div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div><div class="fl">Connect<span>German</span></div><p>ConnectGerman verbindet Menschen mit aktuellen Informationen aus Deutschland.</p></div>
+    <div class="footer-col"><h4>Kategorien</h4><a href="#">Deutschland</a><a href="#">Wirtschaft</a><a href="#">Technik</a><a href="#">Lifestyle</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="#">Über uns</a><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 ConnectGerman &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></div>
+</footer>
+<a href="admin.html" class="admin-link">⚙ Admin</a>
+<script>
+const colors=['c1','c2','c3','c4','c5','c6'];
+function loadPosts(){
+  const posts=JSON.parse(localStorage.getItem('db_posts')||'[]');
+  const grid=document.getElementById('posts-grid');
+  if(!posts.length)return;
+  grid.innerHTML='';
+  posts.slice().reverse().forEach((p,i)=>{
+    const color=colors[i%colors.length];
+    const date=new Date(p.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'});
+    const excerpt=p.content.replace(/<[^>]+>/g,'').substring(0,110)+'...';
+    grid.innerHTML+=`<div class="card" onclick="location.href='post.html?id=${p.id}'">
+      <div class="card-img"><div class="card-img-bg ${color}"></div><span class="card-num">${i+1}</span><div class="card-cat">${p.category||'Deutschland'}</div></div>
+      <div class="card-body"><div class="card-date">${date}</div><div class="card-title">${p.title}</div><div class="card-excerpt">${excerpt}</div><a class="card-link" href="post.html?id=${p.id}">Weiterlesen →</a></div>
+    </div>`;
+  });
+}
+loadPosts();
+</script>
+</body>
+</html>
